@@ -1,0 +1,29 @@
+$padcolor: teal;
+
+@mixin display-style($dir) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+}
+
+body {
+  background: #cccccc;
+}
+.App {
+  @include display-style(column);
+  height: 100vh;
+  margin: 0;
+  & h1 {
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px black;
+  }
+}
+
+.drumMachine {
+  @include display-style(row);
+  justify-content: space-between;
+  width: 600px;
+  outline: thick ridge $padcolor;
+  background: #f2f2f2;
+}

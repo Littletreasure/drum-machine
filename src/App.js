@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import PadContainer from "./Components/PadContainer";
+import Controls from "./Components/Controls";
+import "./css/App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    buttonID: "",
+    power: true,
+  };
+  render() {
+    return (
+      <div className="App">
+        <h1 className="header">Drum Machine</h1>
+        <div className="drumMachine">
+          <PadContainer />
+          <Controls />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
