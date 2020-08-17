@@ -1,4 +1,6 @@
-$padcolor: teal;
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+
+$padcolor: #cc6699;
 
 @mixin display-style($dir) {
   display: flex;
@@ -14,6 +16,7 @@ body {
   height: 100vh;
   margin: 0;
   & h1 {
+    font-family: "Do Hyeon", sans-serif;
     margin-bottom: 20px;
     color: white;
     text-shadow: 2px 2px black;
@@ -26,4 +29,22 @@ body {
   width: 600px;
   outline: thick ridge $padcolor;
   background: #f2f2f2;
+}
+
+.pad-container {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+}
+.drum-pad {
+  height: 44px;
+  width: 70px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 0;
+  text-align: center;
+  padding-top: 26px;
+  cursor: pointer;
+  background: $padcolor;
 }

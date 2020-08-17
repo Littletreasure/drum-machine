@@ -5,15 +5,22 @@ import "./css/App.css";
 
 class App extends Component {
   state = {
-    buttonID: "",
+    buttonId: "",
     power: true,
+  };
+
+  handleClick = (id, keyTrigger) => {
+    const sound = document.getElementById(keyTrigger);
+    sound.currentTime = 0;
+    sound.play();
+    this.setState({ buttonId: id });
   };
   render() {
     return (
       <div className="App">
         <h1 className="header">Drum Machine</h1>
         <div className="drumMachine">
-          <PadContainer />
+          <PadContainer handleClick={this.handleClick} />
           <Controls />
         </div>
       </div>
