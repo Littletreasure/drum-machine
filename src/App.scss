@@ -7,26 +7,37 @@ $padcolor: #cc6699;
   flex-direction: $dir;
   align-items: center;
 }
-
+.power {
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 40px;
+}
+.font {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 20px;
+  color: black;
+}
 body {
-  background: #cccccc;
+  background: #b3b3b3;
 }
 .App {
   @include display-style(column);
   height: 100vh;
   margin: 0;
   & h1 {
-    font-family: "Do Hyeon", sans-serif;
-    margin-bottom: 20px;
-    color: white;
-    text-shadow: 2px 2px black;
+    @extend .font;
+    font-size: 40px;
+    margin-bottom: 40px;
+
+    text-shadow: 2px 2px white;
   }
 }
 
 .drumMachine {
   @include display-style(row);
   justify-content: space-between;
-  width: 600px;
+  width: 800px;
   outline: thick ridge $padcolor;
   background: #f2f2f2;
 }
@@ -38,13 +49,49 @@ body {
   grid-gap: 10px;
 }
 .drum-pad {
-  height: 44px;
-  width: 70px;
+  height: 54px;
+  width: 90px;
   border: 1px solid grey;
   border-radius: 5px;
   margin: 0;
   text-align: center;
-  padding-top: 26px;
+  padding-top: 36px;
   cursor: pointer;
   background: $padcolor;
+  @extend .font;
+}
+.controls {
+  @include display-style(column);
+  justify-content: space-between;
+  background: #b3b3b3;
+  margin: 20px;
+  width: 290px;
+  height: 290px;
+  & p {
+    margin: 5px;
+  }
+  .powerLine {
+    @include display-style(row);
+    align-self: flex-end;
+    & p {
+      @extend .font;
+    }
+  }
+  .powerOn {
+    @extend .power;
+    background-color: green;
+  }
+  .powerOff {
+    @extend .power;
+    background-color: red;
+  }
+
+  .display {
+    width: 100px;
+    height: 20px;
+    background: #f2f2f2;
+    padding: 10px;
+    outline: thick ridge $padcolor;
+    margin-bottom: 20px;
+  }
 }

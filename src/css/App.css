@@ -1,6 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+.power, .controls .powerOn, .controls .powerOff {
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+.font, .App h1, .drum-pad, .controls .powerLine p {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 20px;
+  color: black;
+}
+
 body {
-  background: #cccccc;
+  background: #b3b3b3;
 }
 
 .App {
@@ -19,10 +32,9 @@ body {
 }
 
 .App h1 {
-  font-family: "Do Hyeon", sans-serif;
-  margin-bottom: 20px;
-  color: white;
-  text-shadow: 2px 2px black;
+  font-size: 40px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px white;
 }
 
 .drumMachine {
@@ -39,7 +51,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 600px;
+  width: 800px;
   outline: thick ridge #cc6699;
   background: #f2f2f2;
 }
@@ -54,14 +66,70 @@ body {
 }
 
 .drum-pad {
-  height: 44px;
-  width: 70px;
+  height: 54px;
+  width: 90px;
   border: 1px solid grey;
   border-radius: 5px;
   margin: 0;
   text-align: center;
-  padding-top: 26px;
+  padding-top: 36px;
   cursor: pointer;
   background: #cc6699;
+}
+
+.controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #b3b3b3;
+  margin: 20px;
+  width: 290px;
+  height: 290px;
+}
+
+.controls p {
+  margin: 5px;
+}
+
+.controls .powerLine {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.controls .powerOn {
+  background-color: green;
+}
+
+.controls .powerOff {
+  background-color: red;
+}
+
+.controls .display {
+  width: 100px;
+  height: 20px;
+  background: #f2f2f2;
+  padding: 10px;
+  outline: thick ridge #cc6699;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=App.css.map */
