@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import DrumPad from "./DrumPad";
-import drumData from "../data";
+import { bankOne, bankTwo } from "../data";
 import "../css/App.css";
 
 class PadContainer extends Component {
   state = {
-    drums: drumData,
+    bank: "bankOne",
+    drums: bankOne,
   };
 
   componentDidMount() {
@@ -14,10 +15,18 @@ class PadContainer extends Component {
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyPress);
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.bank !== prevProps.bank) {
+      if (this.props.bank === "bankOne") {
+        this.setState({ drums: bankOne });
+      } else {
+        this.setState({ drums: bankTwo });
+      }
+    }
+  }
   handleKeyPress = (e) => {
-    const result = this.state.drums.filter(
-      (drum) => drum.keyCode === e.keyCode
-    );
+    const result = this.state.bank.filter((drum) => drum.keyCode === e.keyCode);
     if (result.length > 0) {
       this.props.handleClick(result[0].id, result[0].keyTrigger);
     }

@@ -7,11 +7,16 @@ $padcolor: #cc6699;
   flex-direction: $dir;
   align-items: center;
 }
+
+$shadow: 1px 1px 10px 5px #8c8c8c;
+
 .power {
   margin: 5px;
   padding: 5px;
   cursor: pointer;
   font-size: 40px;
+  border: 1px solid gray;
+  box-shadow: $shadow;
 }
 .font {
   font-family: "Do Hyeon", sans-serif;
@@ -29,7 +34,6 @@ body {
     @extend .font;
     font-size: 40px;
     margin-bottom: 40px;
-
     text-shadow: 2px 2px white;
   }
 }
@@ -51,7 +55,8 @@ body {
 .drum-pad {
   height: 54px;
   width: 90px;
-  border: 1px solid grey;
+  //border: 1px solid #8c8c8c;
+  box-shadow: 2px 2px 5px 1px #8c8c8c;
   border-radius: 5px;
   margin: 0;
   text-align: center;
@@ -89,6 +94,9 @@ body {
   .volume {
     width: 70%;
     @include display-style(column);
+    padding: 10px;
+    border: 1px solid #8c8c8c;
+    box-shadow: $shadow;
   }
   .volumeIcons {
     @include display-style(row);
@@ -112,11 +120,36 @@ body {
     }
   }
   .display {
-    width: 100px;
+    width: 120px;
     height: 20px;
     background: #f2f2f2;
     padding: 10px;
     outline: thick ridge $padcolor;
     margin-bottom: 20px;
+  }
+}
+
+.bankContainer {
+  @include display-style(column);
+  justify-content: space-between;
+  padding: 20px;
+  @extend .font;
+  height: 250px;
+
+  .bank {
+    @include display-style(column);
+    & p {
+      margin: 0;
+    }
+  }
+  .button {
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    margin: 5px;
+  }
+  .buttonActive {
+    @extend .button;
+    background-color: green;
   }
 }

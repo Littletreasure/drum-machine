@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PadContainer from "./Components/PadContainer";
 import Controls from "./Components/Controls";
+import BankChooser from "./Components/BankChooser";
 import "./css/App.css";
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
     power: false,
     volume: 5,
     mute: false,
+    bank: "bankOne",
   };
 
   handleClick = (id, keyTrigger) => {
@@ -29,22 +31,36 @@ class App extends Component {
   };
 
   handleVolClick = (e) => {
-    if (e.target.id === "volup" && this.state.volume < 10) {
+    const id = e.currentTarget.id;
+    if (id === "volup" && this.state.volume < 10) {
       this.setState((prevState) => ({ volume: prevState.volume + 1 }));
-    } else if (e.target.id === "voldown" && this.state.volume > 0) {
+    } else if (id === "voldown" && this.state.volume > 0) {
       this.setState((prevState) => ({ volume: prevState.volume - 1 }));
-    } else if (e.target.id === "volmute") {
+    } else if (id === "volmute") {
       this.setState((prevState) => ({ mute: !prevState.mute }));
     }
   };
 
+  handleBankClick = (e) => {
+    if (e.currentTarget.id === "button1") {
+      this.setState({ bank: "bankOne" });
+    } else {
+      this.setState({ bank: "bankTwo" });
+    }
+  };
+
   render() {
-    const { buttonId, power, volume, mute } = this.state;
+    const { buttonId, power, volume, mute, bank } = this.state;
     return (
       <div className="App">
         <h1 className="header">Drum Machine</h1>
         <div className="drumMachine">
-          <PadContainer handleClick={this.handleClick} />
+          <PadContainer handleClick={this.handleClick} bank={bank} />
+          <BankChooser
+            power={power}
+            handleBankClick={this.handleBankClick}
+            bank={bank}
+          />
           <Controls
             buttonId={buttonId}
             power={power}

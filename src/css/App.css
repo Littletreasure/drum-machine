@@ -4,9 +4,12 @@
   padding: 5px;
   cursor: pointer;
   font-size: 40px;
+  border: 1px solid gray;
+  -webkit-box-shadow: 1px 1px 10px 5px #8c8c8c;
+          box-shadow: 1px 1px 10px 5px #8c8c8c;
 }
 
-.font, .App h1, .drum-pad, .controls p {
+.font, .App h1, .drum-pad, .controls p, .bankContainer {
   font-family: "Do Hyeon", sans-serif;
   font-size: 20px;
   color: black;
@@ -68,7 +71,8 @@ body {
 .drum-pad {
   height: 54px;
   width: 90px;
-  border: 1px solid grey;
+  -webkit-box-shadow: 2px 2px 5px 1px #8c8c8c;
+          box-shadow: 2px 2px 5px 1px #8c8c8c;
   border-radius: 5px;
   margin: 0;
   text-align: center;
@@ -140,6 +144,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 10px;
+  border: 1px solid #8c8c8c;
+  -webkit-box-shadow: 1px 1px 10px 5px #8c8c8c;
+          box-shadow: 1px 1px 10px 5px #8c8c8c;
 }
 
 .controls .volumeIcons {
@@ -180,11 +188,57 @@ body {
 }
 
 .controls .display {
-  width: 100px;
+  width: 120px;
   height: 20px;
   background: #f2f2f2;
   padding: 10px;
   outline: thick ridge #cc6699;
   margin-bottom: 20px;
+}
+
+.bankContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+  height: 250px;
+}
+
+.bankContainer .bank {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bankContainer .bank p {
+  margin: 0;
+}
+
+.bankContainer .button, .bankContainer .buttonActive {
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  margin: 5px;
+}
+
+.bankContainer .buttonActive {
+  background-color: green;
 }
 /*# sourceMappingURL=App.css.map */
