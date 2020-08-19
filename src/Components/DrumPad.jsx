@@ -3,6 +3,7 @@ import "../css/App.css";
 
 class DrumPad extends Component {
   state = {};
+
   render() {
     const { id, keyTrigger, url, handleClick } = this.props;
     return (

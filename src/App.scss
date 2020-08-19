@@ -68,14 +68,15 @@ body {
   width: 290px;
   height: 290px;
   & p {
-    margin: 5px;
+    @extend .font;
+    margin: 0;
+  }
+  #power {
+    margin-right: 5px;
   }
   .powerLine {
     @include display-style(row);
     align-self: flex-end;
-    & p {
-      @extend .font;
-    }
   }
   .powerOn {
     @extend .power;
@@ -85,7 +86,31 @@ body {
     @extend .power;
     background-color: red;
   }
+  .volume {
+    width: 70%;
+    @include display-style(column);
+  }
+  .volumeIcons {
+    @include display-style(row);
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 10px;
+    #box {
+      width: 35px;
+      height: 35px;
+      text-align: center;
+    }
+    #volup,
+    #voldown,
+    #volmute {
+      font-size: 25px;
+      cursor: pointer;
 
+      &:active {
+        font-size: 30px;
+      }
+    }
+  }
   .display {
     width: 100px;
     height: 20px;

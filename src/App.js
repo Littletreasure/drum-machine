@@ -7,12 +7,15 @@ class App extends Component {
   state = {
     buttonId: "",
     power: false,
+    volume: 5,
+    mute: false,
   };
 
   handleClick = (id, keyTrigger) => {
     if (this.state.power) {
       const sound = document.getElementById(keyTrigger);
       sound.currentTime = 0;
+      sound.volume = this.state.mute ? 0 : this.state.volume / 10;
       sound.play();
       this.setState({ buttonId: id });
     }
@@ -25,8 +28,18 @@ class App extends Component {
     }));
   };
 
+  handleVolClick = (e) => {
+    if (e.target.id === "volup" && this.state.volume < 10) {
+      this.setState((prevState) => ({ volume: prevState.volume + 1 }));
+    } else if (e.target.id === "voldown" && this.state.volume > 0) {
+      this.setState((prevState) => ({ volume: prevState.volume - 1 }));
+    } else if (e.target.id === "volmute") {
+      this.setState((prevState) => ({ mute: !prevState.mute }));
+    }
+  };
+
   render() {
-    const { buttonId, power } = this.state;
+    const { buttonId, power, volume, mute } = this.state;
     return (
       <div className="App">
         <h1 className="header">Drum Machine</h1>
@@ -35,7 +48,10 @@ class App extends Component {
           <Controls
             buttonId={buttonId}
             power={power}
+            volume={volume}
+            mute={mute}
             handlePowerClick={this.handlePowerClick}
+            handleVolClick={this.handleVolClick}
           />
         </div>
       </div>

@@ -7,6 +7,22 @@ class PadContainer extends Component {
   state = {
     drums: drumData,
   };
+
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress);
+  }
+  handleKeyPress = (e) => {
+    const result = this.state.drums.filter(
+      (drum) => drum.keyCode === e.keyCode
+    );
+    if (result.length > 0) {
+      this.props.handleClick(result[0].id, result[0].keyTrigger);
+    }
+  };
+
   render() {
     const { drums } = this.state;
     return (
@@ -15,6 +31,7 @@ class PadContainer extends Component {
           return (
             <DrumPad
               id={drum.id}
+              key={drum.keyTrigger}
               keyTrigger={drum.keyTrigger}
               url={drum.url}
               handleClick={this.props.handleClick}

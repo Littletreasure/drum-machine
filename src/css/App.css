@@ -6,7 +6,7 @@
   font-size: 40px;
 }
 
-.font, .App h1, .drum-pad, .controls .powerLine p {
+.font, .App h1, .drum-pad, .controls p {
   font-family: "Do Hyeon", sans-serif;
   font-size: 20px;
   color: black;
@@ -98,7 +98,11 @@ body {
 }
 
 .controls p {
-  margin: 5px;
+  margin: 0;
+}
+
+.controls #power {
+  margin-right: 5px;
 }
 
 .controls .powerLine {
@@ -122,6 +126,57 @@ body {
 
 .controls .powerOff {
   background-color: red;
+}
+
+.controls .volume {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.controls .volumeIcons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.controls .volumeIcons #box {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+}
+
+.controls .volumeIcons #volup,
+.controls .volumeIcons #voldown,
+.controls .volumeIcons #volmute {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.controls .volumeIcons #volup:active,
+.controls .volumeIcons #voldown:active,
+.controls .volumeIcons #volmute:active {
+  font-size: 30px;
 }
 
 .controls .display {
