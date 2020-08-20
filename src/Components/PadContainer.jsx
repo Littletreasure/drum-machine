@@ -26,7 +26,9 @@ class PadContainer extends Component {
     }
   }
   handleKeyPress = (e) => {
-    const result = this.state.bank.filter((drum) => drum.keyCode === e.keyCode);
+    const result = this.state.drums.filter(
+      (drum) => drum.keyCode === e.keyCode
+    );
     if (result.length > 0) {
       this.props.handleClick(result[0].id, result[0].keyTrigger);
     }
